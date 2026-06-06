@@ -113,11 +113,36 @@ const DATA = {
   ],
 
   certifications: [
-    { name: 'Java Programming', issuer: 'Simplilearn' },
-    { name: 'Python Programming', issuer: 'CodeAlpha' },
-    { name: 'Mobile App Development', issuer: 'Simplilearn' },
-    { name: 'Basic Neural Networks', issuer: 'Great Learning' },
-    { name: 'Responsible AI (Deepfake Detection)', issuer: 'OpenWeaver' },
+    {
+      name: 'Mastering Deep Learning for Generative AI',
+      issuer: 'Udemy',
+      date: 'Nov 2025',
+      image: '/cert-deep-learning.png'
+    },
+    {
+      name: 'Introduction to Neural Network',
+      issuer: 'Great Learning Academy',
+      date: 'Jun 2024',
+      image: '/cert-neural-networks.png'
+    },
+    {
+      name: 'Basics of Data Structures and Algorithms',
+      issuer: 'Simplilearn',
+      date: 'Jun 2024',
+      image: '/cert-dsa.png'
+    },
+    {
+      name: 'Mobile App Development - Android App Development',
+      issuer: 'Simplilearn',
+      date: 'Apr 2024',
+      image: '/cert-android.png'
+    },
+    {
+      name: 'Java Programming for Beginners',
+      issuer: 'Simplilearn',
+      date: 'Feb 2024',
+      image: '/cert-java.png'
+    }
   ],
 
   languages: [
@@ -366,6 +391,8 @@ function Experience() {
 }
 
 function Education() {
+  const [activeCert, setActiveCert] = useState(null)
+
   return (
     <section className="section" id="education">
       <SectionHeader num="05" label="Education" title="Academic Background" />
@@ -382,15 +409,16 @@ function Education() {
         ))}
       </div>
       <div className="reveal" style={{ marginTop: '3rem' }}>
-        <p className="section-label" style={{ marginBottom: '1rem' }}>Certifications</p>
+        <p className="section-label" style={{ marginBottom: '1rem' }}>Certifications (Click to view)</p>
         <div className="cert-grid">
           {DATA.certifications.map((c, i) => (
-            <div className="cert-card" key={i}>
+            <div className="cert-card" key={i} onClick={() => c.image && setActiveCert(c.image)} style={c.image ? { cursor: 'pointer' } : {}}>
               <span className="cert-check">✓</span>
-              <div>
+              <div className="cert-info">
                 <p className="cert-name">{c.name}</p>
-                <p className="cert-issuer">{c.issuer}</p>
+                <p className="cert-issuer">{c.issuer} {c.date && `• ${c.date}`}</p>
               </div>
+              {c.image && <span className="cert-view-btn">👁️</span>}
             </div>
           ))}
         </div>
@@ -406,6 +434,15 @@ function Education() {
           ))}
         </div>
       </div>
+
+      {activeCert && (
+        <div className="modal-overlay" onClick={() => setActiveCert(null)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setActiveCert(null)}>×</button>
+            <img src={activeCert} alt="Certificate Preview" className="modal-img" />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
