@@ -120,6 +120,22 @@ const DATA = {
       darkColor: '#1e1a0f',
       emoji: '🎮',
     },
+    {
+      num: '07',
+      name: 'Hand Stress Pro',
+      desc: 'Real-time stress detection mobile application that analyzes hand motion and gestures. Powered by a machine learning model, it offers low-latency results, featuring local history tracking, custom settings, and gesture analytics.',
+      tech: ['Flutter', 'Firebase', 'ML', 'Computer Vision', 'Dart'],
+      category: 'Mobile App',
+      color: '#e6fffa',
+      darkColor: '#0c2222',
+      emoji: '🖐️',
+      screenshots: [
+        '/hsp-1.png',
+        '/hsp-2.png',
+        '/hsp-3.png',
+        '/hsp-4.png'
+      ]
+    },
   ],
 
   skills: [
