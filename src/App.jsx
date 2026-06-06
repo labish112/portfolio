@@ -84,6 +84,13 @@ const DATA = {
       color: '#f0f9ff',
       darkColor: '#0f1a1e',
       emoji: '✂️',
+      screenshots: [
+        '/tms-1.png',
+        '/tms-2.png',
+        '/tms-3.png',
+        '/tms-4.png',
+        '/tms-5.png'
+      ]
     },
     {
       num: '06',
@@ -295,6 +302,9 @@ function About() {
 }
 
 function Projects() {
+  const [activeScreens, setActiveScreens] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
   return (
     <section className="section" id="projects">
       <SectionHeader num="02" label="Projects" title="Things I've Built" />
@@ -311,14 +321,52 @@ function Projects() {
             <h3 className="project-card-name">{p.name}</h3>
             <p className="project-card-desc">{p.desc}</p>
             <div className="project-card-footer">
-              <div className="project-tech">
+              <div className="project-tech" style={{ marginBottom: '0.4rem' }}>
                 {p.tech.map(t => <span className="project-badge" key={t}>{t}</span>)}
               </div>
-              <span className="project-status-done">✓ Complete</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginTop: 'auto' }}>
+                <span className="project-status-done">✓ Complete</span>
+                {p.screenshots && (
+                  <button className="project-view-screens-btn" onClick={() => { setActiveScreens(p.screenshots); setCurrentIndex(0); }}>
+                    Screens 📱
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      {activeScreens && (
+        <div className="modal-overlay" onClick={() => setActiveScreens(null)}>
+          <button className="modal-close" onClick={() => setActiveScreens(null)}>×</button>
+          
+          <button className="phone-nav-btn prev" onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev === 0 ? activeScreens.length - 1 : prev - 1)); }}>
+            ←
+          </button>
+          
+          <div className="phone-modal-content" onClick={e => e.stopPropagation()}>
+            <div className="phone-mockup">
+              <div className="phone-notch">
+                <div className="phone-speaker" />
+              </div>
+              <div className="phone-screen">
+                <img src={activeScreens[currentIndex]} alt={`Screenshot ${currentIndex + 1}`} className="phone-screenshot" />
+              </div>
+            </div>
+            
+            <div className="phone-indicators">
+              {activeScreens.map((_, idx) => (
+                <div key={idx} className={`indicator-dot${idx === currentIndex ? ' active' : ''}`} onClick={() => setCurrentIndex(idx)} />
+              ))}
+            </div>
+          </div>
+          
+          <button className="phone-nav-btn next" onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev === activeScreens.length - 1 ? 0 : prev + 1)); }}>
+            →
+          </button>
+        </div>
+      )}
     </section>
   )
 }
