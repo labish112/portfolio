@@ -54,6 +54,12 @@ const DATA = {
       color: '#f0fff4',
       darkColor: '#0f1e16',
       emoji: '📊',
+      screenshots: [
+        '/ae-1.png',
+        '/ae-2.png',
+        '/ae-3.png',
+        '/ae-4.png'
+      ]
     },
     {
       num: '03',
