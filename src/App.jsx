@@ -11,8 +11,8 @@ const DATA = {
   location: 'Mirpurkhas, Sindh, Pakistan',
   linkedin: 'linkedin.com/in/labish-roopani-09a0a6267',
   linkedinUrl: 'https://linkedin.com/in/labish-roopani-09a0a6267',
-  github: 'github.com/labish112',
-  githubUrl: 'https://github.com/labish112',
+  github: 'github.com/LabishRoopani',
+  githubUrl: 'https://github.com/LabishRoopani?tab=repositories',
   university: 'Sukkur IBA University',
 
   summary: 'Motivated Computer Science student at Sukkur IBA University with hands-on experience in AI-based systems, mobile app development, and automation tools. Proficient in Python, Flutter, and computer vision technologies, with growing expertise in React Native. Passionate about building intelligent solutions and pursuing a career in AI and Data Science.',
@@ -260,7 +260,7 @@ function About() {
             ['Status', 'Open to internships & opportunities', null],
             ['Email', DATA.email, `mailto:${DATA.email}`],
             ['LinkedIn', 'labish-roopani', DATA.linkedinUrl],
-            ['GitHub', 'labish112', DATA.githubUrl],
+            ['GitHub', 'LabishRoopani', DATA.githubUrl],
           ].map(([label, val, href]) => (
             <div className="meta-item" key={label}>
               <p className="meta-label">{label}</p>
@@ -445,7 +445,7 @@ function Contact() {
               ['Email', DATA.email, `mailto:${DATA.email}`],
               ['Phone', DATA.phone, `tel:${DATA.phone.replace(/\s/g,'')}`],
               ['LinkedIn', 'labish-roopani', DATA.linkedinUrl],
-              ['GitHub', 'labish112', DATA.githubUrl],
+              ['GitHub', 'LabishRoopani', DATA.githubUrl],
               ['Location', DATA.location, null],
             ].map(([label, val, href]) => (
               <div className="contact-link-row" key={label}
