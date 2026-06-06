@@ -8,7 +8,7 @@ const DATA = {
   tagline: 'CS student building real products — AI systems, mobile apps, and automation tools. Passionate about intelligent solutions and a career in AI & Data Science.',
   email: 'labeshroopani@gmail.com',
   phone: '+92 309 398 9404',
-  location: 'Mirpurkhas, Sindh, Pakistan',
+  location: 'Hyderabad, Sindh, Pakistan',
   linkedin: 'linkedin.com/in/labish-roopani-09a0a6267',
   linkedinUrl: 'https://linkedin.com/in/labish-roopani-09a0a6267',
   github: 'github.com/LabishRoopani',
