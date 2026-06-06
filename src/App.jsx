@@ -32,17 +32,6 @@ const DATA = {
       isFreelance: true,
       stats: { icon: '📱', label: 'Mobile Apps', value: '5+ Projects' },
     },
-    {
-      role: 'Python Developer Intern',
-      company: 'CodeAlpha',
-      period: 'Jun 2024 – Jul 2024',
-      description: 'Worked on software automation and AI-based systems using Python during a remote internship.',
-      highlights: [
-        'Built an AI-powered system to manage Excel data using natural language.',
-        'Implemented automated scripts to improve workflow and data entry tasks.',
-        'Utilized libraries such as PyAutoGUI, OpenCV, and AI APIs for tool integration.',
-      ],
-    },
   ],
 
   projects: [
