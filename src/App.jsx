@@ -353,17 +353,19 @@ function Projects() {
         <div className="modal-overlay" onClick={() => setActiveScreens(null)}>
           <button className="modal-close" onClick={() => setActiveScreens(null)}>×</button>
           
-          <button className="phone-nav-btn prev" onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev === 0 ? activeScreens.length - 1 : prev - 1)); }}>
-            ←
-          </button>
-          
           <div className="phone-modal-content" onClick={e => e.stopPropagation()}>
             <div className="phone-mockup">
               <div className="phone-notch">
                 <div className="phone-speaker" />
               </div>
               <div className="phone-screen">
+                <button className="phone-nav-btn prev" onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev === 0 ? activeScreens.length - 1 : prev - 1)); }}>
+                  ‹
+                </button>
                 <img src={activeScreens[currentIndex]} alt={`Screenshot ${currentIndex + 1}`} className="phone-screenshot" />
+                <button className="phone-nav-btn next" onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev === activeScreens.length - 1 ? 0 : prev + 1)); }}>
+                  ›
+                </button>
               </div>
             </div>
             
@@ -373,10 +375,6 @@ function Projects() {
               ))}
             </div>
           </div>
-          
-          <button className="phone-nav-btn next" onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev === activeScreens.length - 1 ? 0 : prev + 1)); }}>
-            →
-          </button>
         </div>
       )}
     </section>
