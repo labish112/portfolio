@@ -355,13 +355,33 @@ function About() {
 function Projects() {
   const [activeScreens, setActiveScreens] = useState(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [filter, setFilter] = useState('All')
+
+  const categories = ['All', 'AI & Automation', 'Computer Vision', 'Mobile App', 'Game Dev']
+
+  const filteredProjects = filter === 'All'
+    ? DATA.projects
+    : DATA.projects.filter(p => p.category === filter)
 
   return (
     <section className="section" id="projects">
       <SectionHeader num="02" label="Projects" title="Things I've Built" />
-      <div className="projects-cards reveal">
-        {DATA.projects.map((p, i) => (
-          <div className="project-card" key={i} style={{'--card-color': p.color, '--card-dark': p.darkColor}}>
+      
+      <div className="projects-filter reveal">
+        {categories.map(cat => (
+          <button
+            key={cat}
+            className={`filter-btn${filter === cat ? ' active' : ''}`}
+            onClick={() => setFilter(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div className="projects-cards">
+        {filteredProjects.map((p) => (
+          <div className="project-card" key={p.num} style={{'--card-color': p.color, '--card-dark': p.darkColor}}>
             <div className="project-card-header">
               <div className="project-emoji">{p.emoji}</div>
               <div className="project-card-meta">
